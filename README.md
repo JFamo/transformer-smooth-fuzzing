@@ -1,3 +1,11 @@
+# Transformer Smooth Fuzzing
+
+This repository contains work on experimenting with a Transformer model architecture for smoothing program branch coverage given some input. This trained model is used to compute gradients for generating inputs which achieve a target branch coverage for fuzzing applications.
+
+This work is performed for CSE 522 at The Pennsylvania State University, March/April 2023, Joshua Famous jjf5899@psu.edu
+
+See below the original README for NEUZZ
+
 # NEUZZ: a neural-network-assisted fuzzer (S&P'19)
 See IEEE S&P(Oakland)'19 [slides](https://drive.google.com/file/d/1_A33wucTOA2nZpKVArvsXajh-2LNrCZK/view?usp=sharing) and paper [NEUZZ: Efficient Fuzzing with Neural Program Smoothing](https://arxiv.org/abs/1807.05620) for details.
 ## Prerequisite
