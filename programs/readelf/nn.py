@@ -20,6 +20,9 @@ from keras.models import Sequential
 from keras.layers import Dense, Dropout, Activation
 from keras.callbacks import ModelCheckpoint
 
+# Disable eager execution for use of keras.backend gradients function
+tf.compat.v1.disable_eager_execution()
+
 HOST = '127.0.0.1'
 PORT = 12012
 
@@ -350,7 +353,7 @@ def build_model():
     model.add(Dense(num_classes))
     model.add(Activation('sigmoid'))
 
-    opt = tf.keras.optimizers.Adam(lr=0.0001)
+    opt = tf.keras.optimizers.Adam(learning_rate=0.0001)
 
     model.compile(loss='binary_crossentropy', optimizer=opt, metrics=[accur_1])
     model.summary()
@@ -375,8 +378,14 @@ def gen_grad(data):
     t0 = time.time()
     process_data()
     model = build_model()
-    train(model)
-    # model.load_weights('hard_label.h5')
+
+    # Toggle between train and load
+    do_train = False
+    if do_train:
+        train(model)
+    else:
+        model.load_weights('hard_label.h5')
+
     gen_mutate2(model, 500, data[:5] == b"train")
     round_cnt = round_cnt + 1
     print(time.time() - t0)

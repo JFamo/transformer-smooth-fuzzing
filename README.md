@@ -6,6 +6,10 @@ This work is performed for CSE 522 at The Pennsylvania State University, March/A
 
 See below the original README for NEUZZ
 
+## Running NEUZZ
+
+From the root directory, run on readelf via `./neuzz -i neuzz_in -o seeds -l 7506 ./programs/readelf/readelf -a @@`
+
 # NEUZZ: a neural-network-assisted fuzzer (S&P'19)
 See IEEE S&P(Oakland)'19 [slides](https://drive.google.com/file/d/1_A33wucTOA2nZpKVArvsXajh-2LNrCZK/view?usp=sharing) and paper [NEUZZ: Efficient Fuzzing with Neural Program Smoothing](https://arxiv.org/abs/1807.05620) for details.
 ## Prerequisite
